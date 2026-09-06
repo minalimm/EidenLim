@@ -135,6 +135,7 @@
   /* ---------- title page ---------- */
 
   .titlepage {
+    position: relative;
     min-height: calc(100svh - 4.75rem);
     padding-block: clamp(0.5rem, 3vh, 2rem) clamp(1rem, 3vh, 2rem);
     display: flex;
@@ -394,12 +395,6 @@
     letter-spacing: 0.1em;
   }
 
-  .paren {
-    margin: 0.25rem 0 0;
-    font-size: 0.8125rem;
-    color: var(--ink-3);
-  }
-
   .entry-body { grid-column: 2; }
 
   .logline {
@@ -634,12 +629,12 @@
     { category: "Scripts", title: "Succession", format: "Spec", paren: "one-hour", logline: "After uncovering a potential avenue into the Pierce acquisition through an analog ranch, Kendall and Connor compete to win over its eccentric owner — with Connor seeing him as a key to his presidential ambitions.", link: "mailto:eidentlim@gmail.com?subject=Script request: Succession", linktext: "Request script", video: "", revised: "" },
     { category: "Scripts", title: "Bob's Burgers", format: "Spec", paren: "“A Complete Un-Gene”", logline: "When the school lunch ladies go on strike, Gene fights for the cause while Bob must work with Jimmy Pesto to take over lunch duty.", link: "mailto:eidentlim@gmail.com?subject=Script request: Bob's Burgers", linktext: "Request script", video: "", revised: "" },
 
-    { category: "Films", title: "Breakdown breakdown", format: "Short film", paren: "writer, director", logline: "When a friend has an unexplained panic attack, five callow college students must work together to make her feel better.", link: "", linktext: "", video: "", revised: "yes" },
-    { category: "Films", title: "Outside Power", format: "Short film", paren: "writer, director", logline: "When her best friend shatters their sense of comfort, a fiercely independent college student spirals into the night.", link: "", linktext: "", video: "", revised: "" },
+    { category: "Films", title: "Breakdown! Breakdown!", format: "Short film", paren: "writer, director", logline: "When a friend has an unexplained panic attack, five callow college students must work together to make her feel better.", link: "", linktext: "", video: "", revised: "yes" },
+    { category: "Films", title: "Outside Power!!!", format: "Short film", paren: "writer, director", logline: "When her best friend shatters their sense of comfort, a fiercely independent college student spirals into the night.", link: "", linktext: "", video: "", revised: "" },
 
-    { category: "Documentary", title: "The Koshin Faith", format: "Documentary", paren: "", logline: "An exploration of Koshin, a Japanese folk religion.", link: "", linktext: "", video: "", revised: "" },
-    { category: "Documentary", title: "Coffee", format: "Documentary", paren: "", logline: "787 Coffee Company, seen through the eyes of one of its employees.", link: "", linktext: "", video: "", revised: "" },
-    { category: "Documentary", title: "In Conversation with Dong Hwan Choe", format: "Documentary", paren: "entomology", logline: "An entomologist on what separates — and connects — humankind and antkind.", link: "", linktext: "", video: "", revised: "" },
+    { category: "Documentary", title: "The Koshin Faith", format: "Short documentary", paren: "", logline: "An exploration of Koshin, a Japanese folk religion.", link: "", linktext: "", video: "", revised: "" },
+    { category: "Documentary", title: "Coffee", format: "Short documentary", paren: "", logline: "787 Coffee Company, seen through the eyes of one of its employees.", link: "", linktext: "", video: "", revised: "" },
+    { category: "Documentary", title: "In Conversation with Dong Hwan Choe", format: "Short documentary", paren: "entomology", logline: "An entomologist on what separates — and connects — humankind and antkind.", link: "", linktext: "", video: "", revised: "" },
 
     { category: "Stage", title: "Dogs in 1945", format: "Short play", paren: "", logline: "A young hunting dog must prove his fealty to the Nazi Paw-rty.", link: "mailto:eidentlim@gmail.com?subject=Script request: Dogs in 1945", linktext: "Request script", video: "", revised: "" },
     { category: "Stage", title: "Straw Man and the Shark", format: "Short play", paren: "", logline: "Two aging footballers wrestle with retirement, legacy, and a shark in an aquarium.", link: "mailto:eidentlim@gmail.com?subject=Script request: Straw Man and the Shark", linktext: "Request script", video: "", revised: "" }
@@ -729,7 +724,6 @@
     var head = el("div", "entry-head");
     head.appendChild(el("h3", "entry-title", item.title));
     if (item.format) head.appendChild(el("span", "entry-meta", item.format));
-    if (item.paren) head.appendChild(el("p", "paren", "(" + item.paren + ")"));
     article.appendChild(head);
 
     var body = el("div", "entry-body");
