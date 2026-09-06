@@ -156,13 +156,20 @@
   }
 
   .t-title {
+    margin: 0;
+    line-height: 0;
     font-family: var(--hand);
     font-weight: 500;
     font-size: clamp(3.25rem, min(12vw, 15vh), 7.5rem);
-    line-height: 0.95;
     letter-spacing: 0.01em;
-    margin: 0;
-    transform: rotate(-1.75deg);
+  }
+
+  .t-title img {
+    display: block;
+    height: clamp(3.25rem, min(9vw, 14vh), 7rem);
+    width: auto;
+    /* the scan is black on white; multiply drops the white into the paper */
+    mix-blend-mode: multiply;
   }
 
   .t-sub {
@@ -505,7 +512,7 @@
   <section class="titlepage container" id="view-title">
 
     <div class="t-head">
-      <h1 class="t-title">Eiden Lim</h1>
+      <h1 class="t-title"><img src="signature.png" alt="Eiden Lim" onerror="this.replaceWith('Eiden Lim')"></h1>
       <p class="t-sub">SCREENWRITER AND DIRECTOR</p>
       <p class="t-quote">"Stories are how we organize reality"</p>
     </div>
