@@ -443,15 +443,6 @@
     display: block;
   }
 
-  .screen-placeholder {
-    color: #6E7076;
-    font-size: 0.75rem;
-    letter-spacing: 0.14em;
-    text-align: center;
-    padding: 1rem;
-    margin: 0;
-  }
-
   /* ---------- dialogue (about) ---------- */
 
   .cue {
@@ -707,7 +698,16 @@
     m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{6,})/);
     if (m) return "https://www.youtube.com/embed/" + m[1];
 
+    m = url.match(/drive\.google\.com\/file\/d\/([\w-]+)/);
+    if (m) return "https://drive.google.com/file/d/" + m[1] + "/preview";
+
     if (/^https?:\/\//.test(url)) return url;
+
+    /* a bare Google Drive file id, pasted without the surrounding url */
+    if (/^[\w-]{20,}$/.test(url)) {
+      return "https://drive.google.com/file/d/" + url + "/preview";
+    }
+
     return "";
   }
 
@@ -744,7 +744,6 @@
     }
     article.appendChild(body);
 
-    var isVideo = /film|documentary/i.test(item.category || "");
     var src = embedURL(item.video);
 
     if (src) {
@@ -757,10 +756,6 @@
       frame.setAttribute("allowfullscreen", "");
       screen.appendChild(frame);
       article.appendChild(screen);
-    } else if (isVideo) {
-      var empty = el("div", "screen");
-      empty.appendChild(el("p", "screen-placeholder", "ADD A VIMEO OR YOUTUBE LINK IN THE VIDEO COLUMN"));
-      article.appendChild(empty);
     }
 
     return article;
