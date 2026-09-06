@@ -29,6 +29,9 @@
 
   * { box-sizing: border-box; }
 
+  /* must beat the display rules below, or hidden sections still show */
+  [hidden] { display: none !important; }
+
   body {
     background: var(--page);
     color: var(--ink);
